@@ -11,18 +11,26 @@
 int main(void){
 
     time_t timer; 
+    time_t relogio;
+    struct tm *hora;
     struct tm *tblock;
-    
-    while ( 3 == 3)
+    int parar = 23;
+    int agora = 0;
+
+    while ( agora != parar)
     {
-        timer =time(NULL);
+        relogio = time(NULL);
+        timer = time(NULL);
+        hora = localtime(&relogio);
         tblock = localtime(&timer);
-        printf("Local time is: %s", asctime(tblock));
+        printf("horário completo: %s\n", asctime(tblock));
+        printf("hora de agora:  %d\n", hora->tm_hour);
+        agora = hora->tm_hour;
         sleep(10);
     }
-    
-    
 
+    printf("j[a deu o hor[ario pulei fora do la;co whilen\n");
+    
     return 0;
 
 }
